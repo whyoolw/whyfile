@@ -6,5 +6,5 @@ My Arch dotfile
 | DE | Hyprland | 
 | Bar | waybar |
 | launcher | rofi |
-| Login Manager | gdm |
+| Login Manager | tty |
 | Shell | fish |
