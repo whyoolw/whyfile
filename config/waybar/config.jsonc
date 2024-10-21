@@ -1,0 +1,184 @@
+// -*- mode: jsonc -*-
+{	
+		"width": 920,
+		"height": 0,
+    		"layer": "top",
+    		"position": "bottom",
+		"exclusive": true,
+		"passthrough": false,
+		"spacing": 5,
+		"margin-bottom": 0,
+		"margin-top": 0,
+		"fixed-center": true,
+		"reload_style_on_change": true,
+		"modules-left": ["hyprland/workspaces"],
+		"modules-center": ["custom/notifications","clock","group/powerB"],
+		"modules-right": ["group/ttray"],
+
+
+
+"hyprland/workspaces": {
+  "disable-scroll": true,
+  "show-special": true,
+  "on-scroll-up": "hyprctl dispatch workspace -1",
+  "on-scroll-down": "hyprctl dispatch workspace +1",
+	"format": "{icon}",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "",
+			"6": "",
+			"7": "",
+			"8": "",
+			"9": "",
+			"10": "",
+			"special": "",
+		},
+       "persistent-workspaces": {
+             "*": 1
+       }
+},
+
+
+	"network": {
+        	"format-wifi": "󰤨 ",
+        	"format-ethernet": " ",
+        	"format-linked": " ",
+        	"format-disconnected": "󰤭",
+          "on-click": "python ~/.config/rofi/network/network.py"
+	},
+
+ 
+  "custom/notifications": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#DB4740'><sup></sup></span>",
+      "none": "󰂜",
+      "dnd-notification":"<span foreground='#DB4740'><sup>󰵚</sup></span>",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "<span foreground='#DB4740'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='#DB4740'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+"group/powerB": {
+	 "orientation": "horizontal",
+	 "drawer": {
+         "transition-duration": 500,
+         "transition-left-to-right": true,
+     	 },
+	 
+	 "modules": [
+	"hyprland/language",
+	"custom/power",
+        "custom/lock",
+        "custom/reboot",
+        "custom/logout",
+        "custom/sleep"
+    ]
+
+},
+"custom/power": {
+"format": "  ",
+"on-double-click": "systemctl poweroff",
+},
+"custom/lock": {
+"format": "  ",
+"on-double-click": "hyprlock",
+},
+
+"custom/reboot": {
+"format": "  ",
+"on-double-click": "systemctl reboot",
+},
+
+"custom/logout": {
+"format": " 󰍃 ",
+"on-double-click": "hyprctl dispatch exit",
+},
+
+"custom/sleep": {
+"format": "󰒲 ",
+"on-double-click": "systemctl suspend & hyprlock",
+},
+
+	"group/ttray": {
+		"orientation": "horizontal",
+		"modules": [
+			"tray",
+			"battery",
+			"backlight",
+			"pulseaudio",
+			"network"
+		]
+	},
+	"tray": {
+		"icon-size": 16,
+		"spacing": 8,
+		"icon-theme": "Skeuowaita"
+	},
+    
+		"clock": {
+			"format": "{:%H:%M:%S}",
+			"tooltip-format": "{:%OI:%M:%S}",
+   		"timezone": "Europe/Riga",
+    		"interval": 1,
+		"tooltip": "false",
+        	"format-alt": "{:%d.%m.%y}",
+    "on-click-right": "bash ~/.config/rofi/calendar/calendar.sh"
+
+		},
+
+	
+     "pulseaudio": {
+		"format": " {icon} {volume} {format_source}",
+        	"format-muted": "󰝟 ",
+		"format-source": "󰍬 ",
+		"format-source-muted": "󰍭 ",
+		"format-icons": {
+		"default": ["󰕿 ", "󰖀 ", "󰕾 "]},
+		"on-click": "pavucontrol",
+    		"tooltip-format": "{volume}%"
+  },
+ 
+        	
+    	"hyprland/language": {
+        	"format": "{}",
+			"format-en": "en",
+			"format-ru": "ru"
+			    	},
+    "battery": {
+	    "interval": 5,
+        "states": {
+            "warning": 40,
+            "critical": 25
+        },
+        "format": "  {icon} {capacity}",
+	"format-alt": "{icon} {capacity}",
+        "format-charging":"{icon} ",
+        "format-plugged": "{icon} ",
+        "format-full": "{icon} !",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{}"
+    },
+
+    "backlight": {
+    "device": "intel_backlight",
+"format": "{percent} {icon}",
+    "format-icons": ["󰃜","󰃝","󰃞"],
+    "on-scroll-up":   "brightnessctl s 1%+",
+    "on-scroll-down": "brightnessctl s 1%-",
+    "on-click-right": "brightnessctl s 0"
+},
+
+}

@@ -1,0 +1,142 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+* {
+    font:                        "JetBrains Mono Nerd Font 10";
+    background:                  #231419;
+    background-alt:              #101010;
+    foreground:                  #FFFFFF;
+    selected:                    #505050; /* Changed from #426647 to #505050 */
+    active:                      #909090; /* Changed from #2E3F34 to #909090 */
+    urgent:                      #707070; /* Changed from #D08261 to #707070 */
+}
+
+/*
+USE_BUTTONS=YES
+*/
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       550px; 
+    height:                      700px;  
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               10px;
+    border-color:                #505050; /* Changed from @selected to #505050 */
+    cursor:                      "default";
+    background-color:            #101010; /* Changed from @background to #101010 */
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                #505050; /* Changed from @selected to #505050 */
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview", "message" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     0px;
+    padding:                     100px 40px;
+    background-color:            transparent;
+    background-image:            url("~/.config/rofi/images/e.jpg", width);
+    children:                    [ "textbox-prompt-colon", "dummy","prompt"];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+textbox-prompt-colon {
+    enabled:                     false;
+    expand:                      false;
+    str:                         "W";
+    padding:                     12px;
+    border-radius:               5px;
+    background-color:            #707070; /* Changed from @urgent to #707070 */
+    text-color:                  #FFFFFF; /* Changed from @background to #FFFFFF */
+}
+prompt {
+    enabled:                     true;
+    padding:                     12px;
+    border-radius:               5px;
+    background-color:            #909090; /* Changed from @active to #909090 */
+    text-color:                  #FFFFFF; /* Changed from @foreground to #FFFFFF */
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     5;
+    lines:                       5; 
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     8px;
+    margin:                      15px;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     1px 1px;
+    border-radius:               10px;
+    background-color:            #101010; /* Changed from @background-alt to #2D1E23 */
+    text-color:                  #FFFFFF; /* Changed from @foreground to #FFFFFF */
+    cursor:                      pointer;
+}
+element-text {
+      background-color:            transparent;
+    text-color:                  transparent;
+    cursor:                      inherit;
+
+}
+element selected.normal {
+    background-color:            #505050; /* Changed from var(selected) to #505050 */
+    text-color:                  #FFFFFF; /* Changed from var(background) to #FFFFFF */
+    str:                         "";
+}
+element-icon {
+    background-color:            transparent;
+    padding:                     0px;
+}
+
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     15px;
+    border-radius:               0px;
+    background-color:            #101010; /* Changed from @background-alt to #2D1E23 */
+    text-color:                  #FFFFFF; /* Changed from @foreground to #FFFFFF */
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5px;
+    horizontal-align:            0.5px;
+}
+
