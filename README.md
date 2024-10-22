@@ -1,12 +1,4 @@
 # whyfile
-| Environment | Name |
-|-----|-----|
-| DE | Hyprland | 
-| Bar | waybar |
-| launcher |  |
-| Login Manager | tty |
-| Shell | fish |
-
 >Hyprland
 ![redpywal](/screens/red%20pywal.png)
 >>waybar
