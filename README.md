@@ -1,14 +1,15 @@
 # whyfile
-## Intel i7-9750H + Quadrober T2000
-My Arch dotfile
 | Environment | Name |
 |-----|-----|
 | DE | Hyprland | 
 | Bar | waybar |
-| launcher | rofi |
+| launcher |  |
 | Login Manager | tty |
 | Shell | fish |
 
 >Hyprland
+![redpywal](/screens/red%20pywal.png)
 >>waybar
+![waybarblue](/screens/waybarblue.png)
 >>>anyrun
+![anyrun](/screens/blueanyrun.png)
