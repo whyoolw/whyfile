@@ -8,3 +8,7 @@ My Arch dotfile
 | launcher | rofi |
 | Login Manager | tty |
 | Shell | fish |
+
+>Hyprland
+>>waybar
+>>>anyrun
