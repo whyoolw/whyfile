@@ -1,5 +1,5 @@
-set preview_images true
-set preview_images_method kitty
+#set preview_images true
+#set preview_images_method kitty
 default_linemode devicons
 set show_hidden true
 

@@ -1,0 +1,116 @@
+/* theme pallete */
+@define-color bg_blue #2f3d3c;
+@define-color bg_red #401413;
+@define-color bg_green #3a3a11;
+
+@define-color red #cc241d;
+@define-color orange #d65d0e;
+@define-color yellow #d79921;
+@define-color aqua #689d6a;
+@define-color blue #458588;
+@define-color green #98971a;
+@define-color purple #b16286;
+
+
+@define-color bg_dim #141414; /* the darkest one */
+@define-color bg_zero #282828;
+@define-color bg_one #3c3836;
+@define-color bg_two #504945;
+/*@define-color bg_three #665c54 */
+/*@define-color bg_four #7c6f64" */
+@define-color bg_five #bdc3af;
+
+@define-color fg #fbf1c7;
+
+
+/* non-theme specific colors */
+@define-color background @bg_zero; /* only changes background and foreground */
+@define-color foreground @fg; /* light color, tab bar background from kitty*/
+
+@define-color launcher_border @green;
+
+@define-color entry_bg @bg_dim;
+@define-color entry_border @bg_four;
+@define-color entry_ @bg_four;
+@define-color entry_selection @bg_green;
+
+@define-color plug_icon_and_label_bg @red;
+@define-color plug_icon_and_label_fg @background;
+@define-color plug_icon_and_label_shadow @bg_red;
+
+@define-color result_bg @bg_dim;
+
+@define-color result_selected_bg @green;
+@define-color result_selected_fg @background;
+@define-color result_selected_shadow @bg_green;
+
+* {
+  all: unset;
+  font-family: "SF Pro Rounded", RecMonoLinear;
+  font-size: 16px;
+}
+
+box#main {
+  background: @background;
+  border: 1px solid @launcher_border;
+  border-radius: 10px;
+  padding: 20px;
+  color: @foreground;
+}
+
+/* text prompt */
+#entry {
+  background: @entry_bg;
+  border-radius: 16px;
+  padding: 10px;
+
+/*  border: 1px solid @entry_border; */
+}
+
+#entry selection {
+  background: @entry_selection;
+}
+
+/* padding of the whole bottom area (below entry box) */
+list#main{
+  padding: 20px 0px;
+}
+
+/* plugin name and icon */
+box > box#plugin.horizontal:first-child {
+  border-radius: 10px;
+  background: @plug_icon_and_label_bg;
+  color: @plug_icon_and_label_fg;
+  box-shadow: @plug_icon_and_label_shadow 5px 5px;
+  padding: 10px;
+}
+
+/* margin between each plugin section*/
+list#main > row {
+  margin: 5px 0px;
+}
+
+/* each selectable result*/
+#match.activatable {
+  border-radius: 10px;
+  background: @result_bg;
+  margin: 0px 5px 10px 0px; /* 0px;*/
+  padding: 7px;
+}
+
+#match:selected, #match:hover {
+  background: @result_selected_bg; /* rgba(255, 255, 255, .1); */
+  color: @result_selected_fg;
+  box-shadow: @result_selected_shadow 5px 5px;
+
+/*
+  border-bottom: 6px solid @bg_green;
+  padding: 7px 7px 1px 7px;
+*/
+
+}
+
+/* hovered selectable result */
+#match:hover {
+  opacity: 0.6;
+}
