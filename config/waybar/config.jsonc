@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {	
-		"width": 920,
+		"width": 620,
 		"height": 0,
     		"layer": "top",
     		"position": "bottom",
@@ -11,9 +11,18 @@
 		"margin-top": 0,
 		"fixed-center": true,
 		"reload_style_on_change": true,
-		"modules-left": ["hyprland/workspaces"],
-		"modules-center": ["custom/notifications","clock","group/powerB"],
-		"modules-right": ["group/ttray"],
+		"modules-left": ["custom/notifications","tray", "hyprland/language" ],
+		"modules-center": [
+			"clock",
+			],
+		"modules-right": [
+			
+			"backlight",
+			"pulseaudio",
+			"battery",
+			"network",
+
+			],
 
 
 
@@ -46,7 +55,7 @@
         	"format-wifi": "󰤨 ",
         	"format-ethernet": " ",
         	"format-linked": " ",
-        	"format-disconnected": "󰤭",
+        	"format-disconnected": "󰤭 ",
           "on-click": "python ~/.config/rofi/network/network.py"
 	},
 
@@ -55,13 +64,13 @@
     "tooltip": false,
     "format": "{icon}",
     "format-icons": {
-      "notification": "<span foreground='#DB4740'><sup></sup></span>",
+      "notification": "<span foreground='#DB4740'>󰂜</span>",
       "none": "󰂜",
-      "dnd-notification":"<span foreground='#DB4740'><sup>󰵚</sup></span>",
-      "dnd-none": "󰂛",
-      "inhibited-notification": "<span foreground='#DB4740'><sup></sup></span>",
+      "dnd-notification":"<span foreground='#DB4740'></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='#DB4740'></span>",
       "inhibited-none": "",
-      "dnd-inhibited-notification": "<span foreground='#DB4740'><sup></sup></span>",
+      "dnd-inhibited-notification": "<span foreground='#DB4740'></span>",
       "dnd-inhibited-none": ""
     },
     "return-type": "json",

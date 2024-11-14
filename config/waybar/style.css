@@ -1,8 +1,8 @@
 * {
 	font-family: googlesans;
 	font-weight: bold;
-	min-height: 0;
 	border-radius: 16 16 0 0;
+	font-size: 14px;
 }
 
 window#waybar {
@@ -50,17 +50,14 @@ window#waybar {
 #tray {
 	background: @background;
 	color: @color9;
-	font-size: 14px;
-	padding: 0 8 0 8px;
-	margin: 5 10px;
-	border: solid 2px @color2;
-	border-radius: 12;
+	padding: 0 0 0 0;
+	margin: 3 0 0 0;
 
 }
 #battery {
 	background: @background;
 	color: @color6;
-	padding: 0 0 0 0;
+	padding: 0 1 0 1;
 }
 
 #network {
@@ -71,39 +68,33 @@ window#waybar {
 
 #custom-notifications {
 	color: @color2;
-	padding: 5 8 5 5;
+	margin: 5 5 0 8;
 	font-size: 14pt;
 }
 
 #pulseaudio {
 	background: @background;
 	color: @color6;
-	padding: 0 8 0 0;
-	font-size: 15;
+
 }
 
 #clock {
 	background: @background;
 	color: @color6;
-	font-size: 17px;
-	padding: 5 5px;
+	font-size: 16px;
 
 }
 
 #language {
 	background: @background;
 	color: @color6;
-	padding: 0 5 0 8;
-	margin: 1 10 1 1px;
-	font-size: 16px;
-	border-radius: 6
+	padding: 0 0 0 8;
+	margin: 4 0 0 0;
+	font-size: 15px;
 }
 #backlight {
 	background: @background;
 	color: @color6;
-	padding: 0 0 0 10;
-	margin: 1 10 1 1px;
-	font-size: 16px;
-	border-radius: 6
+	margin: 0 6 0 1px;
 
 }

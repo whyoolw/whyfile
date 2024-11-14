@@ -29,7 +29,7 @@ wallpaper="$WALLPAPERS_DIR/$choice"
 if [ "$XDG_CURRENT_DESKTOP" = "asd" ]; then
     echo "$wallpaper"
 else
-    swww img -t any --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration 1 --transition-step 255 --transition-fps 144 "$wallpaper" && \
+    swww img -t any --transition-duration 0 --transition-step 255 --transition-fps 60 "$wallpaper" && \
     ln -sf "$wallpaper" "$WALLPAPERS_DIR"/0current.png && wal -i "$wallpaper"
 fi
 
