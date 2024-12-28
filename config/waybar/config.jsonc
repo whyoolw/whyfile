@@ -80,6 +80,8 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
+
+
 "group/powerB": {
 	 "orientation": "horizontal",
 	 "drawer": {

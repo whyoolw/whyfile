@@ -1,0 +1,98 @@
+{
+	"position": "bottom",
+	"height": 27,
+	"width": 900,
+	"spacing": 0,
+	"margin-bottom": 5,
+
+    "modules-left": ["clock","pulseaudio"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["hyprland/language","tray","network","custom/swaync"],
+
+
+
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
+		"show-special": true,
+		"format-icons": {
+			"1": "󰫍",
+			"2": "󰫍",
+			"3": "󰫍",
+			"4": "󰫍",
+			"5": "󰫍",
+			"6": "󰫍",
+			"7": "󰫍",
+			"8": "󰫍",
+			"9": "󰫍",
+			"10": "󰫍",
+			"special": "󰫍"
+			},
+		"tooltip": false
+
+	},
+
+    "tray": {
+		"icon-size": 14,
+		"spacing": 15
+    },
+
+    "pulseaudio": {
+		"scroll-step": 5,
+		"format": "{icon} {volume}% {format_source}",
+		"format-source": "",
+		"format-source-muted": "",
+		"format-icons": {
+			"default": ["󰕿 ", "󰖀 ", "󰕾 "]
+		},
+		"on-click": "pavucontrol"
+	},
+
+	"hyprland/language": {
+		"format": "{}",
+		"format-en": "EN",
+		"format-ru": "RU"
+	},
+    
+ "clock": {
+		"format": "{:%H:%M:%OS}",
+    "timezone": "Europe/Riga",
+    "interval": 1,
+		"tooltip": "false",
+        	"format-alt": "{:%d/%m/%Y}",
+    "on-click-right": "bash ~/.config/rofi/calendar/calendar.sh"
+},
+
+
+	 "custom/swaync": {
+	    	"tooltip": false,
+                "format": "{icon}",
+                "format-icons": {
+                     "notification": "<span foreground='red'><sup></sup></span>",
+                     "none": "",
+                     "dnd-notification": "<span foreground='red'><sup></sup></span>",
+                     "dnd-none": "",
+                     "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+                     "inhibited-none": "",
+                     "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+                     "dnd-inhibited-none": ""
+                },
+                "return-type": "json",
+                "exec-if": "which swaync-client",
+                "exec": "swaync-client -swb",
+                "on-click": "swaync-client -t -sw",
+                "on-click-right": "swaync-client -d -sw",
+                "escape": true
+           }, 
+	   "network": {
+        	"format-wifi": "󰤨",
+        	"format-ethernet": " ",
+        	"format-linked": "  (No IP)",
+        	"format-disconnected": "󰤭",
+        	"format-alt": " ",
+          "tooltip-format": "{essid}",
+          "on-click-right": "python ~/.config/rofi/network/network.py"
+	}
+
+}
+}

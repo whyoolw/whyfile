@@ -1,0 +1,64 @@
+
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "arch_small",
+        "padding": {
+            "top": 1,
+            "right": 1
+        }
+    },
+    "display": {
+        "separator": " "
+    },
+    "modules": [
+	"break",
+        {
+            "type": "os",
+            "key": " ",
+            "keyColor": "33"  // = color3
+        },
+        {
+            "type": "kernel",
+            "key": " ",
+            "keyColor": "33"
+        },
+        {
+            "type": "packages",
+            "format": "{} (pacman)",
+            "key": " ",
+            "keyColor": "33"
+        },
+/*        {
+            "type": "shell",
+            "key": " ",
+            "keyColor": "33"
+        }, */
+        {
+            "type": "terminal",
+            "key": " ",
+            "keyColor": "33"
+        },
+        {
+            "type": "wm",
+            "key": " ",
+            "keyColor": "33"
+        },
+        {
+            "type": "uptime",
+            "key": " ",
+            "keyColor": "33"
+        },
+	 {
+            "type": "command",
+            "key": " ",
+            "keyColor": "33",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        },
+
+       /* "break",
+        "colors",
+        "break",
+        "break" */
+    ]
+}

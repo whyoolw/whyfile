@@ -1,0 +1,226 @@
+{
+    "position": "bottom",
+    "layer": "top",
+    "height": 1,
+    "width": 900,
+    "spacing": 0,
+    "margin-top": -15,
+    "margin-bottom": -17,
+    "margin-left": 0,
+    "margin-right": 0,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock" ],
+    "modules-right": ["hyprland/language","tray", "group/group-applets"],
+    "reload_style_on_change": true,
+    // Modules configuration
+	
+
+    "clock": {
+		"format": "{:%H:%M:%OS}",
+    "timezone": "Europe/Riga",
+    "interval": 1,
+		"tooltip": "false",
+        	"format-alt": "{:%d/%m/%Y}",
+    "on-click-right": "bash ~/.config/rofi/calendar/calendar.sh"
+	},
+
+		  "hyprland/language": {
+        "format": "{}",
+        "format-en": "en",
+        "format-ru": "ru"
+        },
+
+	
+    "custom/swaync": {
+	    	"tooltip": false,
+                "format": "{icon}",
+                "format-icons": {
+                     "notification": "<span foreground='red'><sup></sup></span>",
+                     "none": "",
+                     "dnd-notification": "<span foreground='red'><sup></sup></span>",
+                     "dnd-none": "",
+                     "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+                     "inhibited-none": "",
+                     "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+                     "dnd-inhibited-none": ""
+                },
+                "return-type": "json",
+                "exec-if": "which swaync-client",
+                "exec": "swaync-client -swb",
+                "on-click": "swaync-client -t -sw",
+                "on-click-right": "swaync-client -d -sw",
+                "escape": true
+           }, 
+
+"hyprland/workspaces": {
+  "disable-scroll": true,
+  "show-special": true,
+  "on-scroll-up": "hyprctl dispatch workspace -1",
+  "on-scroll-down": "hyprctl dispatch workspace +1",
+	"format": "{icon}",
+	"format-icons": {
+		"1": "一",
+		"2": "二",
+		"3": "三",
+		"4": "四",
+		"5": "五",
+		"6": "六",
+		"7": "七",
+		"8": "八",
+		"9": "九",
+	  	"10": "〇",
+	   "special": "ジ"
+//		"active": "",
+//		"default": "󰧞"
+	},
+       "persistent-workspaces": {
+             "*": 1
+       }
+},
+
+    "custom/playerctl": {
+      "format": "{icon}   ::  <span>{}</span>",
+      "return-type": "json",
+      "max-length": 64,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-click-middle": "playerctl play-pause",
+      "on-click": "playerctl previous",
+      "on-click-right": "playerctl next",
+      "format-icons": {
+        "Playing": "<span foreground='#B1B946'>󰝚</span>",
+        "Paused": "<span foreground='#47423E'>󰝛</span>"
+      }
+    },
+
+    "custom/playerlabel": {
+      "format": "<span>{}</span>",
+      "return-type": "json",
+      "max-length": 48,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-click-middle": "playerctl play-pause",
+      "on-click": "playerctl previous",
+      "on-click-right": "playerctl next",
+      "format-icons": {
+        "Playing": "<span foreground='#B1B946'>󰒮 󰐌  󰒭</span>",
+        "Paused": "<span foreground='#47423E'>󰒮 󰏥  󰒭</span>"
+      }
+    },
+
+	"battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format":"{icon}",
+        "format-charging": "󰂄",
+        "format-plugged": "󱐋",
+        "format-alt": "{icon} <span font='Iosevka'>{capacity}% | {time}</span>",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "interval": 1,
+        "tooltip-format": "{capacity}% - {time}"
+	},
+
+
+	"network": {
+        	"format-wifi": "󰤨",
+        	"format-ethernet": " ",
+        	"format-linked": "  (No IP)",
+        	"format-disconnected": "󰤭",
+        	"format-alt": " : {ipaddr}/{cidr}",
+          "tooltip-format": "{essid}",
+          "on-click-right": "python ~/.config/rofi/network/network.py"
+	},
+
+ 
+  "custom/notifications": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰂚<span foreground='#DB4740'><sup></sup></span>",
+      "none": "󰂚",
+      "dnd-notification": "󰂛<span foreground='#DB4740'><sup></sup></span>",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󰂚<span foreground='#DB4740'><sup></sup></span>",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛<span foreground='#DB4740'><sup></sup></span>",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+	"tray": {
+		"icon-size": 14,
+		"spacing": 5
+	},
+
+	"backlight": {
+        // "device": "acpi_video1",
+	"format": "{icon}",
+        "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"],
+//	"on-scroll-up":,
+//	"on-scroll-down":,
+  "tooltip-format": "{percent}%"
+	},
+
+ "pulseaudio": {
+		"format": "{icon} {volume}% {format_source}",
+        	"format-muted": "󰝟 ",
+		"format-source": "",
+		"format-source-muted": "",
+		"format-icons": {
+		"default": ["󰕿 ", "󰖀 ", "󰕾 "]
+		},
+		"on-click": "pavucontrol",
+    "tooltip-format": "{volume}%"
+  },
+  "custom/launcher": {
+    "format": "󰢚",
+    "on-click": "bash ~/.config/rofi/launcher/launcher.sh",
+    "on-click-right": "bash ~/.config/rofi/powermenu/powermenu.sh"
+  },
+
+  "custom/wf-recorder": {
+		"format": "{}",
+		"interval": "once",
+		"exec": "echo ''",
+		"tooltip": "false",
+		"exec-if": "pgrep 'wf-recorder'",
+		"on-click": "exec ./scripts/wlrecord.sh",
+		"signal": 8
+	},
+
+  "custom/hyprpicker": {
+    "format": "󰈋",
+    "on-click": "bash ~/.config/waybar/scripts/hyprpicker-hex.sh",
+    "on-click-right": "bash ~/.config/waybar/scripts/hyprpicker-rgb.sh"
+  },
+
+  "group/group-applets": {
+    "orientation": "inherit",
+    "modules": [
+        "pulseaudio",
+        "backlight",
+	"network",
+        "battery",
+	"custom/swaync"
+    ]
+},
+"colors": {
+    "background": "${color0}",
+    "background-alt": "${color1}",
+    "foreground": "${color7}",
+    "foreground-alt": "${color6}",
+    "primary": "${color2}",
+    "secondary": "${color3}",
+    "alert": "${color9}"
+}
+}
+}
