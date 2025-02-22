@@ -11,7 +11,7 @@
 		"margin-top": 0,
 		"fixed-center": true,
 		"reload_style_on_change": true,
-		"modules-left": ["custom/notifications","tray", "hyprland/language" ],
+		"modules-left": ["custom/notifications","tray", "niri/language" ],
 		"modules-center": [
 			"clock",
 			],
@@ -67,7 +67,7 @@
       "notification": "<span foreground='#DB4740'>󰂜</span>",
       "none": "󰂜",
       "dnd-notification":"<span foreground='#DB4740'></span>",
-      "dnd-none": "",
+      "dnd-none": "",
       "inhibited-notification": "<span foreground='#DB4740'></span>",
       "inhibited-none": "",
       "dnd-inhibited-notification": "<span foreground='#DB4740'></span>",
@@ -163,7 +163,7 @@
   },
  
         	
-    	"hyprland/language": {
+    	"niri/language": {
         	"format": "{}",
 			"format-en": "en",
 			"format-ru": "ru"
