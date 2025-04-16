@@ -3,7 +3,7 @@
 		"width": 620,
 		"height": 0,
     		"layer": "top",
-    		"position": "bottom",
+    		"position": "top",
 		"exclusive": true,
 		"passthrough": false,
 		"spacing": 5,
