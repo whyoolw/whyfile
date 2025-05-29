@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {	
-		"width": 620,
+		"width": 820,
 		"height": 0,
     		"layer": "top",
     		"position": "top",
@@ -13,10 +13,10 @@
 		"reload_style_on_change": true,
 		"modules-left": ["custom/notifications","tray", "niri/language" ],
 		"modules-center": [
-			"clock",
+			"clock", 
 			],
 		"modules-right": [
-			
+			"privacy",
 			"backlight",
 			"pulseaudio",
 			"battery",
@@ -25,8 +25,9 @@
 			],
 
 
+  
 
-"hyprland/workspaces": {
+"niri/workspaces": {
   "disable-scroll": true,
   "show-special": true,
   "on-scroll-up": "hyprctl dispatch workspace -1",
@@ -49,6 +50,17 @@
              "*": 1
        }
 },
+
+"privacy": {
+    "icon-size": 12,
+    "icon-spacing": 4,
+    "transition-duration": 250,
+    "modules": [
+        { "type": "screenshare" },
+        { "type": "audio-in" }
+    ]
+},
+
 
 
 	"network": {
