@@ -1,37 +1,39 @@
 // -*- mode: jsonc -*-
 {	
-		"width": 820,
-		"height": 0,
+		"width": 720,
+		"height": 1,
     		"layer": "top",
     		"position": "top",
 		"exclusive": true,
 		"passthrough": false,
-		"spacing": 5,
-		"margin-bottom": 0,
 		"margin-top": 0,
+		"spacing": 4,
 		"fixed-center": true,
 		"reload_style_on_change": true,
-		"modules-left": ["custom/notifications","tray", "niri/language" ],
+		"modules-left": ["custom/notifications","custom/sep", "tray", "custom/sep","niri/language" ],
 		"modules-center": [
 			"clock", 
 			],
 		"modules-right": [
-			"privacy",
-			"backlight",
-			"pulseaudio",
-			"battery",
+			"privacy","custom/sep",
+			"pulseaudio","custom/sep",
+			"backlight","custom/sep",
+			"battery","custom/sep",
 			"network",
 
 			],
 
 
   
+ 		"custom/sep": {
+			"format": "|",
+			"tooltip": false,
+		},
+
 
 "niri/workspaces": {
   "disable-scroll": true,
   "show-special": true,
-  "on-scroll-up": "hyprctl dispatch workspace -1",
-  "on-scroll-down": "hyprctl dispatch workspace +1",
 	"format": "{icon}",
 		"format-icons": {
 			"1": "",
@@ -64,10 +66,10 @@
 
 
 	"network": {
-        	"format-wifi": "󰤨 ",
-        	"format-ethernet": " ",
-        	"format-linked": " ",
-        	"format-disconnected": "󰤭 ",
+        	"format-wifi": "1",
+        	"format-ethernet": "2",
+        	"format-linked": "2",
+        	"format-disconnected": "1",
           "on-click": "python ~/.config/rofi/network/network.py"
 	},
 
@@ -76,14 +78,10 @@
     "tooltip": false,
     "format": "{icon}",
     "format-icons": {
-      "notification": "<span foreground='#DB4740'>󰂜</span>",
-      "none": "󰂜",
-      "dnd-notification":"<span foreground='#DB4740'></span>",
-      "dnd-none": "",
-      "inhibited-notification": "<span foreground='#DB4740'></span>",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "<span foreground='#DB4740'></span>",
-      "dnd-inhibited-none": ""
+      "notification": "<span foreground='#DB4740'>10</span>",
+      "none": "00",
+      "dnd-notification":"<span foreground='#DB4740'>11</span>",
+      "dnd-none": "01",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
@@ -146,9 +144,8 @@
 		]
 	},
 	"tray": {
-		"icon-size": 16,
-		"spacing": 8,
-		"icon-theme": "Skeuowaita"
+		"icon-size": 14,
+		"spacing": 5,
 	},
     
 		"clock": {
@@ -164,41 +161,40 @@
 
 	
      "pulseaudio": {
-		"format": " {icon} {volume} {format_source}",
-        	"format-muted": "󰝟 ",
-		"format-source": "󰍬 ",
-		"format-source-muted": "󰍭 ",
+		"format": "{icon} {volume} {format_source}",
+        	"format-muted": "0",
+		"format-source": "1",
+		"format-source-muted": "0",
 		"format-icons": {
-		"default": ["󰕿 ", "󰖀 ", "󰕾 "]},
-		"on-click": "pavucontrol",
-    		"tooltip-format": "{volume}%"
+			"default": ["1", "2", "3"]},
+			"on-click": "pavucontrol",
+    			"tooltip-format": "{volume}%"
   },
  
         	
     	"niri/language": {
         	"format": "{}",
-			"format-en": "en",
-			"format-ru": "ru"
+			"format-en": "1",
+			"format-ru": "0"
 			    	},
-    "battery": {
-	    "interval": 5,
-        "states": {
-            "warning": 40,
-            "critical": 25
-        },
-        "format": "  {icon} {capacity}",
-	"format-alt": "{icon} {capacity}",
-        "format-charging":"{icon} ",
-        "format-plugged": "{icon} ",
-        "format-full": "{icon} !",
-        "format-icons": ["", "", "", "", ""],
-        "tooltip-format": "{}"
-    },
+ 	"battery": {
+		"interval": 5,
+		"states": {
+			"warning": 40,
+			"critical": 20,
+	},
+		"format": "{capacity}",
+		"format-icons": ["0", "1", "2", "3", "4"],
+		"format-time": "{H}h {M}m",
+		"tooltip-format": "{capacity} {power}w {time}",
+		"tooltip-format-charging": "{capacity}% (charging) {time}",
+},
+
 
     "backlight": {
     "device": "intel_backlight",
-"format": "{percent} {icon}",
-    "format-icons": ["󰃜","󰃝","󰃞"],
+"format": "{percent}",
+    "format-icons": ["1","2","3"],
     "on-scroll-up":   "brightnessctl s 1%+",
     "on-scroll-down": "brightnessctl s 1%-",
     "on-click-right": "brightnessctl s 0"
