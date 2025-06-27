@@ -1,4 +1,4 @@
-spawn-at-startup 		"waybar"
+spawn-at-startup 		"/usr/bin/waybar"
 spawn-at-startup 		"xwayland-satellite"
 spawn-at-startup 		"swww-daemon"
 spawn-at-startup 		"Pipewire"
@@ -8,7 +8,6 @@ spawn-at-startup 		"clipse -listen"
 spawn-at-startup 		"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup 		"kdeconnect-indicator"
 
-
 binds {
     Mod+E 			{ spawn "kitty" "sh" "-c" "ranger"; }
     Mod+Return 			{ spawn "kitty"; }
@@ -16,7 +15,6 @@ binds {
     Mod+V 			{ spawn "kitty" "--class" "clipse" "-e" "clipse";}
     Mod+Shift+C 		{ spawn "hyprpicker" "-a" "$(wl-paste)"; }
     Mod+P 			{ spawn "/home/whyoolw/.config/niri/off.sh"; }
-
 
     XF86MonBrightnessUp 	{ spawn "brightnessctl" "-q" "set" "2%+"; }
     XF86MonBrightnessDown 	{ spawn "brightnessctl" "-q" "set" "2%-"; }
@@ -138,16 +136,16 @@ window-rule {
 }
 
 window-rule {
+	match app-id="swaync-notification-window"
+	open-focused false
+}
+
+window-rule {
     		match app-id="org.gnome.FileRoller"
     		open-floating true
         	default-column-width { fixed 812; }
     		default-window-height { fixed 900; }
     }
-
-window-rule{
-		match app-id="swaync"
-    		block-out-from "screen-capture"
-}
 
 window-rule {
     		match app-id="thinkfan-ui"
@@ -167,7 +165,7 @@ window-rule{
 }
 
 window-rule {
-    		geometry-corner-radius 12
+    		geometry-corner-radius 2
     		clip-to-geometry true
 }
 
@@ -195,6 +193,7 @@ layout {
 //		empty-workspace-above-first 
     		always-center-single-column
 //		background-color "transparent"
+
 
 default-column-width {
         	proportion 0.5
@@ -253,7 +252,6 @@ output "HDMI-A-1" {
 }
 
 output "eDP-1" {
-    		off
 		mode "1920x1080@60"
 }
 
@@ -272,8 +270,64 @@ layer-rule {
 
 overview {
 		backdrop-color "#232323"
-	 	zoom 1
+	 	zoom 0.5
     		workspace-shadow {
         	off
+    }
+}
+
+gestures {
+    hot-corners {
+         off
+    }
+}
+animations {
+	off
+    // Uncomment to turn off all animations.
+    // You can also put "off" into each individual animation to disable it.
+    // off
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+
+    // Individual animations.
+
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+    }
+
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
 }
