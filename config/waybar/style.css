@@ -1,5 +1,5 @@
 * {
-	font-family: Source Code Pro;
+	font-family: Google Sans;
 	font-weight: bold;
 	border-radius: 0;
 	font-size: 14px;
@@ -14,19 +14,18 @@ window#waybar {
 @import "/home/whyoolw/.cache/wal/colors-waybar.css";
 
 #workspaces {
-	background-color: @background;
-	font-family: 'Symbols Nerd Font';
 	font-size: 11pt;
-	padding:  0;
+		padding: 0 0 0 0;
+	margin: 0 0 0 0;
 }
 
 #workspaces button {
-    padding: 0 0 0 10;
-    margin: 0px 4px;
     border-radius: 16px;
     color: @color11;
     background-color: @color4;
         transition: all 0.8s ease-in-out;
+		padding: 0 0 0 0;
+	margin: 0 0 0 0;
 
 }
 
@@ -35,6 +34,8 @@ window#waybar {
 	color: @color2;
 	border-radius: 4;
 	transition: all 0.3s ease-in-out;
+		padding: 0 0 0 0;
+	margin: 0 0 0 0;
 
 }
 
@@ -46,6 +47,12 @@ window#waybar {
 
 }
 
+#window{
+	background: @background;
+	color: @color6;
+	padding: 0 2 0 2;
+	margin: 0 0 0 0;
+}
 #tray {
 	background: @background;
 	color: @color9;
