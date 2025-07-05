@@ -16,6 +16,9 @@ binds {
     Mod+Shift+C 		{ spawn "hyprpicker" "-a" "$(wl-paste)"; }
     Mod+P 			{ spawn "/home/whyoolw/.config/niri/off.sh"; }
 
+//    Mod+MouseForward 		{ ; }
+    Mod+MouseBack repeat=false	{ toggle-overview; }
+
     XF86MonBrightnessUp 	{ spawn "brightnessctl" "-q" "set" "2%+"; }
     XF86MonBrightnessDown 	{ spawn "brightnessctl" "-q" "set" "2%-"; }
     XF86AudioPlay 		{ spawn "playerctl" "play-pause"; }
@@ -165,7 +168,7 @@ window-rule{
 }
 
 window-rule {
-    		geometry-corner-radius 2
+    		geometry-corner-radius 12
     		clip-to-geometry true
 }
 
@@ -282,15 +285,6 @@ gestures {
     }
 }
 animations {
-	off
-    // Uncomment to turn off all animations.
-    // You can also put "off" into each individual animation to disable it.
-    // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
-
-    // Individual animations.
 
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
@@ -298,12 +292,12 @@ animations {
 
     window-open {
         duration-ms 150
-        curve "ease-out-expo"
+        curve "linear"
     }
 
     window-close {
         duration-ms 150
-        curve "ease-out-quad"
+        curve "ease-out-cubic"
     }
 
     horizontal-view-movement {
@@ -324,7 +318,7 @@ animations {
 
     screenshot-ui-open {
         duration-ms 200
-        curve "ease-out-quad"
+        curve "linear"
     }
 
     overview-open-close {
