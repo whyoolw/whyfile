@@ -1,6 +1,3 @@
-"autocmd VimEnter * WipeReg"
-
-
 imap jk <Esc>
 vnoremap <C-c> "+y
 map <C-p> "+p

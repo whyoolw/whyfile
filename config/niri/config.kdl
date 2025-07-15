@@ -12,11 +12,12 @@ binds {
     Mod+E 			{ spawn "kitty" "sh" "-c" "ranger"; }
     Mod+Return 			{ spawn "kitty"; }
     Mod+D 			{ spawn "rofi" "-show" "drun"; }
+    //Mod+Shift+D			{ spawn "kitty"; }
     Mod+V 			{ spawn "kitty" "--class" "clipse" "-e" "clipse";}
     Mod+Shift+C 		{ spawn "hyprpicker" "-a" "$(wl-paste)"; }
     Mod+P 			{ spawn "/home/whyoolw/.config/niri/off.sh"; }
 
-//    Mod+MouseForward 		{ ; }
+    Mod+MouseForward  		{ focus-workspace 1 ; }
     Mod+MouseBack repeat=false	{ toggle-overview; }
 
     XF86MonBrightnessUp 	{ spawn "brightnessctl" "-q" "set" "2%+"; }
@@ -29,8 +30,9 @@ binds {
     XF86AudioLowerVolume 	{ spawn "playerctl" "previous"; }
     Mod+Space 			{ spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     Mod+W 			{ spawn "/home/whyoolw/.config/rofi/wallpaper/wallpaper.sh"; }
-    Mod+A 			{ toggle-column-tabbed-display; }
-    Mod+Shift+A 		{ focus-window-down; }
+    Mod+Shift+W			{ spawn "/home/whyoolw/Documents/test/bash.bash"; }
+    //Mod+A 			{ toggle-column-tabbed-display; }
+    //Mod+Shift+A 		{ focus-window-down; }
     Mod+O 			{ spawn "/home/whyoolw/.config/rofi/sc/sc.sh"; }
 
     Mod+Shift+space 		{ toggle-window-floating; }
@@ -116,7 +118,7 @@ binds {
     Alt+Print 			{ screenshot-window; }
     Mod+Shift+P 		{ quit; }
 }
-	screenshot-path "~/Pictures/%d-%m-%y %H-%M-%S.png"
+	screenshot-path "~/Pictures/Screenshot/%d-%m-%y %H-%M-%S.png"
 
 
 
@@ -192,36 +194,39 @@ environment {
 
 layout {
     		gaps 8
-    		center-focused-column "on-overflow"
-//		empty-workspace-above-first 
+		center-focused-column "on-overflow"
+	//	empty-workspace-above-first 
     		always-center-single-column
-//		background-color "transparent"
 
 
 default-column-width {
         	proportion 0.5
 }
 
-tab-indicator {
-        	width 8
-        	gap 8
-        	length total-proportion=1.0
-        	position "top"
-        	place-within-column
-}
+    focus-ring {
+         off
+    }
 
-focus-ring {
-        	off
-        	width 1
-        	active-color "#87d6bc"
-        	inactive-color "#2e2e3e"
-}
+    border {
+        width 1
+        active-color "#C2C3C5"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
 
-border {
-        	width 1
-        	inactive-color "#2e2e3e"
-        	active-color "#7a7a78"
-}
+    }
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
 
 }
 input {
@@ -237,8 +242,8 @@ mouse {
         	accel-profile "flat"
 }
 touchpad {
-		off
-		tap
+	off
+	tap
 }
 
     		focus-follows-mouse max-scroll-amount="0%"
@@ -251,7 +256,6 @@ cursor {
 
 output "HDMI-A-1" {
     		mode "1920x1080@60"
-    		variable-refresh-rate  on-demand=true
 }
 
 output "eDP-1" {
@@ -273,7 +277,7 @@ layer-rule {
 
 overview {
 		backdrop-color "#232323"
-	 	zoom 0.5
+	 	zoom 0.25
     		workspace-shadow {
         	off
     }
@@ -284,44 +288,4 @@ gestures {
          off
     }
 }
-animations {
 
-    workspace-switch {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-    }
-
-    window-open {
-        duration-ms 150
-        curve "linear"
-    }
-
-    window-close {
-        duration-ms 150
-        curve "ease-out-cubic"
-    }
-
-    horizontal-view-movement {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-    }
-
-    window-movement {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-    }
-
-    window-resize {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-    }
-
-    config-notification-open-close {
-        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
-    }
-
-    screenshot-ui-open {
-        duration-ms 200
-        curve "linear"
-    }
-
-    overview-open-close {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-    }
-}

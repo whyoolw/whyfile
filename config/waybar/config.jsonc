@@ -1,6 +1,5 @@
 // -*- mode: jsonc -*-
 {	
-		"width": 1920,
 		"height": 1,
     		"layer": "top",
     		"position": "top",
@@ -10,7 +9,12 @@
 		"spacing": 4,
 		"fixed-center": true,
 		"reload_style_on_change": true,
-		"modules-left": ["custom/notifications","custom/sep", "tray", "custom/sep","niri/language","niri/window" ],
+		"modules-left": ["custom/notifications",
+			"custom/sep",
+			"tray",
+			"custom/sep",
+			"niri/language",
+			"niri/window" ],
 		"modules-center": [
 			"clock",
 			],
@@ -53,6 +57,7 @@
 		},
 },
 
+
 "privacy": {
     "icon-size": 12,
     "icon-spacing": 4,
@@ -70,7 +75,8 @@
         	"format-ethernet": "2",
         	"format-linked": "2",
         	"format-disconnected": "1",
-          "on-click": "python ~/.config/rofi/network/network.py"
+          "on-click": "python ~/.config/rofi/network/network.py",
+	  "on-click-right": "/mnt/bine4/scripts/wallpaperkonachan.bash",
 	},
 
  

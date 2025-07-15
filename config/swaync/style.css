@@ -1,31 +1,10 @@
-@define-color foreground #dbd6cb;
-@define-color background #090c09;
-@define-color cursor #dbd6cb;
+@import "/home/whyoolw/.cache/wal/colors-waybar.css";
 
-@define-color color0 #090c09;
-@define-color color1 #9D6A52;
-@define-color color2 #CD6845;
-@define-color color3 #AF995E;
-@define-color color4 #E19C64;
-@define-color color5 #3D7785;
-@define-color color6 #4CA2B3;
-@define-color color7 #dbd6cb;
-@define-color color8 #99958e;
-@define-color color9 #9D6A52;
-@define-color color10 #CD6845;
-@define-color color11 #AF995E;
-@define-color color12 #E19C64;
-@define-color color13 #3D7785;
-@define-color color14 #4CA2B3;
-@define-color color15 #dbd6cb;
 
-/*
- * vim: ft=less
- */
 
-@define-color noti-border-color rgba(255, 255, 255, 0.9);
-@define-color noti-close-bg rgba(255, 255, 255, 0.1);
-@define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
+@define-color noti-border-color @color2;
+@define-color noti-close-bg @color10;
+@define-color noti-close-bg-hover @color13;
 @define-color noti-bg-hover @color5;
 @define-color noti-bg-focus @color3;
 @define-color noti-urgent #BF616A;
@@ -43,7 +22,7 @@
 
 .notification-row:focus,
 .notification-row:hover {
-  background: @noti-bg-focus;
+  background: @color10;
 }
 
 .notification {
