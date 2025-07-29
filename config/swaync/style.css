@@ -22,7 +22,6 @@
 
 .notification-row:focus,
 .notification-row:hover {
-  background: @color10;
 }
 
 .notification {
@@ -40,7 +39,6 @@
 }
 
 .notification-content {
-  background: transparent;
   padding: 6px;
 }
 
@@ -152,7 +150,7 @@
 }
 
 .control-center-list {
-  background: transparent;
+  background: @background;
 }
 
 .floating-notifications {
@@ -226,4 +224,5 @@
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
+
 

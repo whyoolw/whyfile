@@ -1,15 +1,17 @@
 // -*- mode: jsonc -*-
 {	
-		"height": 1,
+		"width": 1400,
+		"height": 25,
     		"layer": "top",
     		"position": "top",
 		"exclusive": true,
 		"passthrough": false,
-		"margin-top": 0,
-		"spacing": 4,
+		"margin-top": 6,
+		"spacing": 8,
 		"fixed-center": true,
 		"reload_style_on_change": true,
-		"modules-left": ["custom/notifications",
+		"modules-left": [
+			"custom/notifications",
 			"custom/sep",
 			"tray",
 			"custom/sep",
@@ -26,15 +28,10 @@
 			"network",
 
 			],
-
-
-  
- 		"custom/sep": {
+ 		/*"custom/sep": {
 			"format": "|",
 			"tooltip": false,
-		},
-
-
+		},*/
 "niri/window": {
     "format": "{app_id}",
     "icon": true,
@@ -56,25 +53,35 @@
 		"default": "0"
 		},
 },
-
-
-"privacy": {
-    "icon-size": 12,
-    "icon-spacing": 4,
-    "transition-duration": 250,
-    "modules": [
-        { "type": "screenshare" },
-        { "type": "audio-in" }
-    ]
-},
-
-
-
+	"privacy": {
+			"icon-spacing": 10,
+			"icon-size": 12,
+			"transition-duration": 250,
+			"modules": [
+				{
+					"type": "screenshare",
+					"tooltip": true,
+					"tooltip-icon-size": 24
+				},
+				{
+					"type": "audio-in",
+					"tooltip": true,
+					"tooltip-icon-size": 24
+				}
+			],
+			"ignore-monitor": true,
+			"ignore": [
+				{
+					"type": "screenshare",
+					"name": "obs"
+				}
+			]
+		},
 	"network": {
-        	"format-wifi": "1",
-        	"format-ethernet": "2",
-        	"format-linked": "2",
-        	"format-disconnected": "1",
+        	"format-wifi": "󰤯",
+        	"format-ethernet": "󰈀",
+        	"format-linked": "󰈀",
+        	"format-disconnected": "󰤮",
           "on-click": "python ~/.config/rofi/network/network.py",
 	  "on-click-right": "/mnt/bine4/scripts/wallpaperkonachan.bash",
 	},
@@ -84,10 +91,10 @@
     "tooltip": false,
     "format": "{icon}",
     "format-icons": {
-      "notification": "<span foreground='#DB4740'>10</span>",
-      "none": "00",
-      "dnd-notification":"<span foreground='#DB4740'>11</span>",
-      "dnd-none": "01",
+      "notification": "<span foreground='#DB4740'></span>",
+      "none": "",
+      "dnd-notification":"<span foreground='#DB4740'></span>",
+      "dnd-none": "",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
@@ -96,71 +103,18 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
-
-
-"group/powerB": {
-	 "orientation": "horizontal",
-	 "drawer": {
-         "transition-duration": 500,
-         "transition-left-to-right": true,
-     	 },
-	 
-	 "modules": [
-	"hyprland/language",
-	"custom/power",
-        "custom/lock",
-        "custom/reboot",
-        "custom/logout",
-        "custom/sleep"
-    ]
-
-},
-"custom/power": {
-"format": "  ",
-"on-double-click": "systemctl poweroff",
-},
-"custom/lock": {
-"format": "  ",
-"on-double-click": "hyprlock",
-},
-
-"custom/reboot": {
-"format": "  ",
-"on-double-click": "systemctl reboot",
-},
-
-"custom/logout": {
-"format": " 󰍃 ",
-"on-double-click": "hyprctl dispatch exit",
-},
-
-"custom/sleep": {
-"format": "󰒲 ",
-"on-double-click": "systemctl suspend & hyprlock",
-},
-
-	"group/ttray": {
-		"orientation": "horizontal",
-		"modules": [
-			"tray",
-			"battery",
-			"backlight",
-			"pulseaudio",
-			"network"
-		]
-	},
 	"tray": {
 		"icon-size": 14,
 		"spacing": 5,
 	},
     
 		"clock": {
-			"format": "{:%H:%M:%S}",
+			"format": "{:%H:%M:%S  %d.%m.%y}",
 			"tooltip-format": "{:%OI:%M:%S}",
    		"timezone": "Europe/Riga",
     		"interval": 1,
 		"tooltip": "false",
-        	"format-alt": "{:%d.%m.%y}",
+     //   	"format-alt": "{:%d.%m.%y}",
     "on-click-right": "bash ~/.config/rofi/calendar/calendar.sh"
 
 		},
@@ -168,7 +122,7 @@
 	
      "pulseaudio": {
 		"format": "{volume} {format_source}",
-        	"format-muted": "0",
+        	"format-muted": "MUTE",
 		"format-source": "1",
 		"format-source-muted": "0",
 		"format-icons": {
@@ -180,8 +134,8 @@
         	
     	"niri/language": {
         	"format": "{}",
-			"format-en": "1",
-			"format-ru": "0"
+			"format-en": "󰑂 ",
+			"format-ru": "󰑀 "
 			    	},
  	"battery": {
 		"interval": 5,

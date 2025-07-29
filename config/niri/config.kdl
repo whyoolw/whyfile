@@ -1,4 +1,4 @@
-spawn-at-startup 		"/usr/bin/waybar"
+spawn-at-startup 		"waybar"
 spawn-at-startup 		"xwayland-satellite"
 spawn-at-startup 		"swww-daemon"
 spawn-at-startup 		"Pipewire"
@@ -11,8 +11,8 @@ spawn-at-startup 		"kdeconnect-indicator"
 binds {
     Mod+E 			{ spawn "kitty" "sh" "-c" "ranger"; }
     Mod+Return 			{ spawn "kitty"; }
-    Mod+D 			{ spawn "rofi" "-show" "drun"; }
-    //Mod+Shift+D			{ spawn "kitty"; }
+    Mod+Shift+D			{ spawn "rofi" "-show" "drun"; }
+    Mod+D			{ spawn "fuzzel"; }
     Mod+V 			{ spawn "kitty" "--class" "clipse" "-e" "clipse";}
     Mod+Shift+C 		{ spawn "hyprpicker" "-a" "$(wl-paste)"; }
     Mod+P 			{ spawn "/home/whyoolw/.config/niri/off.sh"; }
@@ -154,8 +154,8 @@ window-rule {
 
 window-rule {
     		match app-id="thinkfan-ui"
-            	default-column-width { fixed 412; }
-    		default-window-height { fixed 400; }
+            	default-column-width { fixed 550; }
+    		default-window-height { fixed 500; }
     		open-floating true
 }
 
@@ -256,14 +256,20 @@ cursor {
 
 output "HDMI-A-1" {
     		mode "1920x1080@60"
+		focus-at-startup
 }
 
 output "eDP-1" {
 		mode "1920x1080@60"
+		position x=0 y=0
+		scale 0.95
 }
 
 layer-rule {
-    		block-out-from "screencast"
+    match namespace="waybar"
+    match at-startup=true
+
+     opacity 0.999999
 }
 
 hotkey-overlay {
@@ -276,7 +282,7 @@ layer-rule {
 }
 
 overview {
-		backdrop-color "#232323"
+		backdrop-color "#1f1f1f"
 	 	zoom 0.25
     		workspace-shadow {
         	off
