@@ -18,7 +18,7 @@ binds {
     Mod+P 			{ spawn "/home/whyoolw/.config/niri/off.sh"; }
 
     Mod+MouseForward  		{ focus-workspace 1 ; }
-    Mod+MouseBack repeat=false	{ toggle-overview; }
+    //Mod+MouseBack repeat=false	{ spawn "flameshot" "gui"; }
 
     XF86MonBrightnessUp 	{ spawn "brightnessctl" "-q" "set" "2%+"; }
     XF86MonBrightnessDown 	{ spawn "brightnessctl" "-q" "set" "2%-"; }
@@ -114,7 +114,9 @@ binds {
     Mod+Shift+Minus 		{ set-window-height "-10%"; }
     Mod+Shift+Equal 		{ set-window-height "+10%"; }
 
-    Mod+Shift+S 		{ screenshot; }
+    
+    Mod+Shift+S 		{ spawn "flameshot" "gui"; }
+    Mod+Ctrl+S 		{ screenshot; }
     Alt+Print 			{ screenshot-window; }
     Mod+Shift+P 		{ quit; }
 }
@@ -130,10 +132,13 @@ window-rule {
 window-rule {
     		match app-id="zen$" title="^Picture-in-Picture$"
     		open-floating true
+    		default-floating-position x=32 y=32 relative-to="top-right"
+//		block-out-from "screen-capture"
+    		open-focused false
 }
 
 window-rule {
-    		match app-id="zen$" title="^Картинка в картинке$"
+    		match app-id="zen" title="^Картинка в картинке$"
     		open-floating true
     		default-floating-position x=32 y=32 relative-to="top-right"
 //		block-out-from "screen-capture"
@@ -143,6 +148,8 @@ window-rule {
 window-rule {
 	match app-id="swaync-notification-window"
 	open-focused false
+	match is-focused=true
+	//block-out-from "screen-capture"
 }
 
 window-rule {
@@ -168,7 +175,15 @@ window-rule{
     		match app-id="zen$"
     		open-maximized true
 }
+window-rule{
+match app-id="discord"
 
+    		open-maximized true
+}
+window-rule{
+match app-id="Spotify"
+   		open-maximized true
+}
 window-rule {
     		geometry-corner-radius 12
     		clip-to-geometry true
@@ -197,6 +212,7 @@ layout {
 		center-focused-column "on-overflow"
 	//	empty-workspace-above-first 
     		always-center-single-column
+		background-color "transparent"
 
 
 default-column-width {
@@ -257,12 +273,13 @@ cursor {
 output "HDMI-A-1" {
     		mode "1920x1080@60"
 		focus-at-startup
+		//scale 1
 }
 
 output "eDP-1" {
 		mode "1920x1080@60"
 		position x=0 y=0
-		scale 0.95
+		scale 1
 }
 
 layer-rule {
@@ -271,27 +288,81 @@ layer-rule {
 
      opacity 0.999999
 }
+layer-rule {
+    match namespace="swww-daemon"
+    match namespace="mpvpaper"
+    place-within-backdrop true
+}
+
+
 
 hotkey-overlay {
     		skip-at-startup
 }
 
-layer-rule {
-    		match namespace="^wallpaper$"
-    		place-within-backdrop true
-}
 
 overview {
 		backdrop-color "#1f1f1f"
 	 	zoom 0.25
     		workspace-shadow {
-        	off
+			off
     }
 }
 
 gestures {
     hot-corners {
          off
+    }
+}
+clipboard {
+    disable-primary
+}
+
+debug {
+    //render-drm-device "/dev/dri/renderD128"	//nvidia only
+    //render-drm-device "/dev/dri/renderD129"	//intel+nvidia
+}
+
+animations {
+    slowdown 0.95
+
+    workspace-switch {
+        spring damping-ratio=1.15 stiffness=600 epsilon=0.0001
+    }
+
+    window-open {
+        duration-ms 150
+        curve "ease-out-cubic"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=600 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.15 stiffness=600 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.15 stiffness=600 epsilon=0.0001
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=0.85 stiffness=700 epsilon=0.001
+    }
+
+    screenshot-ui-open {
+        duration-ms 170
+        curve "ease-out-cubic"
+    }
+
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
 }
 
