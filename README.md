@@ -5,6 +5,6 @@ My arch rice for Thinkpad P53
 |-----|-----|
 | DE | niri | 
 | Bar | waybar |
-| launcher | rofi |
-| Login Manager | gdm |
+| launcher | fuzzel |
+| Login Manager | tty |
 | Shell | fish |
