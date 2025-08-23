@@ -15,18 +15,17 @@
     "image-visibility": "when-available",
     "keyboard-shortcuts": true,
     "notification-icon-size": 24,
-    "notification-inline-replies": true,
-    "notification-visibility": {},
+    "notification-inline-replies": false,
+    //"notification-visibility": {},
     "notification-window-width": 400,
     "notification-margin-bottom": 100,
     "notification-margin-left": 0,
     "control-center-margin-right": 0,
     "control-center-margin-top": 0,
+      "image-visibility": "when-available",
 
     "positionX": "left",
     "positionY": "bottom",
-    "script-fail-notify": false,
-    "scripts": {},
     "timeout": 6,
     "timeout-critical": 0,
     "timeout-low": 5,
@@ -38,9 +37,7 @@
             "image-size": 64,
             "blacklist": ["playerctld"]
         },
-			"dnd": {
-			"text": "dnd:w"
-		},
+
         "title": {
             "text": "Notifications",
             "button-text": "Clear",

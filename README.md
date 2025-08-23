@@ -8,9 +8,7 @@ My arch rice for Thinkpad P53
 | launcher | fuzzel |
 | Login Manager | tty |
 | Shell | fish |
-
-| Shortcut | Action |
-|----------|--------|
+| **Shortcut** | **Action** |
 | **Mod + Return** | Open `kitty` |
 | **Mod + E** | Launch `ranger` |
 | **Mod + D** | Launch `fuzzel` |

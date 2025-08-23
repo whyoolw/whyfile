@@ -1,7 +1,5 @@
 @import "/home/whyoolw/.cache/wal/colors-waybar.css";
 
-
-
 @define-color noti-border-color @color2;
 @define-color noti-close-bg @color10;
 @define-color noti-close-bg-hover @color13;

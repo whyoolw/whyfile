@@ -115,97 +115,84 @@ binds {
     Mod+Shift+Equal 		{ set-window-height "+10%"; }
 
     
-    Mod+Shift+S 		{ spawn "flameshot" "gui"; }
-    Mod+Ctrl+S 		{ screenshot; }
+    Mod+Ctrl+S 			{ spawn "flameshot" "gui"; }
+    Mod+Shift+S 		{ screenshot; }
     Alt+Print 			{ screenshot-window; }
     Mod+Shift+P 		{ quit; }
-}
-	screenshot-path "~/Pictures/Screenshot/%d-%m-%y %H-%M-%S.png"
+	}
+		screenshot-path "~/Pictures/Screenshot/%d-%m-%y %H-%M-%S.png"
 
-
-
-window-rule {
-    		match app-id="firefox$" title="^Picture-in-Picture$"
-    		open-floating true
-}
-
-window-rule {
-    		match app-id="zen$" title="^Picture-in-Picture$"
-    		open-floating true
-    		default-floating-position x=32 y=32 relative-to="top-right"
-//		block-out-from "screen-capture"
-    		open-focused false
-}
-
-window-rule {
-    		match app-id="zen" title="^Картинка в картинке$"
-    		open-floating true
-    		default-floating-position x=32 y=32 relative-to="top-right"
-//		block-out-from "screen-capture"
-    		open-focused false
-}
-
-window-rule {
-	match app-id="swaync-notification-window"
-	open-focused false
-	match is-focused=true
-	//block-out-from "screen-capture"
-}
-
-window-rule {
-    		match app-id="org.gnome.FileRoller"
-    		open-floating true
-        	default-column-width { fixed 812; }
-    		default-window-height { fixed 900; }
-    }
-
-window-rule {
-    		match app-id="thinkfan-ui"
-            	default-column-width { fixed 550; }
-    		default-window-height { fixed 500; }
-    		open-floating true
-}
-
-window-rule{
-    		match app-id="firefox$"
-    		open-maximized true
-}
-
-window-rule{
-    		match app-id="zen$"
-    		open-maximized true
-}
-window-rule{
-match app-id="discord"
-
-    		open-maximized true
-}
-window-rule{
-match app-id="Spotify"
-   		open-maximized true
-}
 window-rule {
     		geometry-corner-radius 12
     		clip-to-geometry true
-}
+	}
+
+window-rule {
+		match app-id="swaync-notification-window"
+		open-focused false
+	}
+
+window-rule {
+    		match app-id="zen" title="^Картинка в картинке$"
+		match title="^Picture-in-Picture$"
+    		open-floating true
+    		default-floating-position x=32 y=32 relative-to="top-right"
+    		open-focused false
+	}
+
+window-rule {
+		match app-id="swaync-notification-window"
+		open-focused false
+		match is-focused=true
+	}
+
+window-rule{
+    		match app-id="zen$"
+		match app-id="discord"
+		match app-id="Spotify"
+    		open-maximized true
+	}
 
 window-rule {
     		match app-id="org.gnome.Calculator"
     		default-column-width { fixed 4; }
     		default-window-height { fixed 4; }
     		open-floating true
-}
-
+	}
 window-rule {
-		match app-id="hyprland-share-picker"
-		open-floating true
-		default-column-width { fixed 480; }
-		default-window-height { fixed 270; }
-}
+    		match app-id="thinkfan-ui"
+            	default-column-width { fixed 550; }
+    		default-window-height { fixed 300; }
+    		open-floating true
+	}
+window-rule {
+    		match app-id="thinkfan-ui"
+            	default-column-width { fixed 550; }
+    		default-window-height { fixed 300; }
+    		open-floating true
+	}
+
+workspace "1" {
+		open-on-output "HDMI-A-1"
+	}
+workspace "2" {
+		open-on-output "HDMI-A-1"
+	}
+workspace "3" {
+		open-on-output "HDMI-A-1"
+	}
+workspace "4" {
+		open-on-output "HDMI-A-1"
+	}
+workspace "5" {
+		open-on-output "HDMI-A-1"
+	}
+
 
 environment {
-    		DISPLAY ":0"
-}
+    	QT_STYLE_OVERRIDE "Adwaita-Dark"
+	DISPLAY ":0"
+	}
 
 layout {
     		gaps 8
@@ -237,7 +224,6 @@ default-column-width {
         proportion 0.66667
     }
 
-
     preset-window-heights {
         proportion 0.33333
         proportion 0.5
@@ -266,12 +252,14 @@ touchpad {
 }
 
 cursor {
-    		xcursor-theme "Bibata-Modern-Ice"
-    		xcursor-size 20
+	
+    		//xcursor-theme "Bibata-Modern-Ice"
+    		xcursor-theme "Orbian-Mint"
+    		xcursor-size 18
 }
 
 output "HDMI-A-1" {
-    		mode "1920x1080@60"
+    		mode "1920x1080@75"
 		focus-at-startup
 		//scale 1
 }
@@ -279,7 +267,7 @@ output "HDMI-A-1" {
 output "eDP-1" {
 		mode "1920x1080@60"
 		position x=0 y=0
-		scale 1
+		
 }
 
 layer-rule {
@@ -294,8 +282,6 @@ layer-rule {
     place-within-backdrop true
 }
 
-
-
 hotkey-overlay {
     		skip-at-startup
 }
@@ -305,7 +291,7 @@ overview {
 		backdrop-color "#1f1f1f"
 	 	zoom 0.25
     		workspace-shadow {
-			off
+			//off
     }
 }
 
@@ -315,12 +301,15 @@ gestures {
     }
 }
 clipboard {
-    disable-primary
+	disable-primary 
 }
 
 debug {
+// skip-cursor-only-updates-during-vrr
     //render-drm-device "/dev/dri/renderD128"	//nvidia only
     //render-drm-device "/dev/dri/renderD129"	//intel+nvidia
+   // wait-for-frame-completion-in-pipewire
+   
 }
 
 animations {
@@ -366,3 +355,5 @@ animations {
     }
 }
 
+
+prefer-no-csd
