@@ -14,7 +14,7 @@ My arch rice for Thinkpad P53
 | **Mod + Return** | Open `kitty` |
 | **Mod + E** | Launch `ranger` |
 | **Mod + D** | Launch `fuzzel` |
-| **Mod + V** | Open terminal clipboard manager |
+| **Mod + V** | Laucnh `clipse` |
 | **Mod + Shift + Q** | Close window |
 | **Mod + Shift + Space** | Toggle floating window |
 | **Mod + F** | Fullscreen window |
