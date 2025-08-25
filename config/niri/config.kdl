@@ -161,16 +161,12 @@ window-rule {
 	}
 window-rule {
     		match app-id="thinkfan-ui"
+		match app-id="org.kde.kdeconnect.daemon"
             	default-column-width { fixed 550; }
     		default-window-height { fixed 300; }
     		open-floating true
 	}
-window-rule {
-    		match app-id="thinkfan-ui"
-            	default-column-width { fixed 550; }
-    		default-window-height { fixed 300; }
-    		open-floating true
-	}
+
 
 workspace "1" {
 		open-on-output "HDMI-A-1"
@@ -295,6 +291,8 @@ overview {
     }
 }
 
+prefer-no-csd
+
 gestures {
     hot-corners {
          off
@@ -354,6 +352,3 @@ animations {
         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
 }
-
-
-prefer-no-csd
