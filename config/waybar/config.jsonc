@@ -16,12 +16,13 @@
 			"tray",
 			"custom/sep",
 			"niri/language",
-			"niri/window", "cava" ],
+			"niri/window",
+			"cava"],
 		"modules-center": [
 			"clock"
 			],
 		"modules-right": [
-			"cava","privacy", "custom/sep",
+			"cava", "privacy", "custom/sep",
 			"pulseaudio","custom/sep",
 			"backlight","custom/sep",
 			"battery","custom/sep",
@@ -109,14 +110,14 @@
     "tooltip": false,
     "format": "{icon}",
     "format-icons": {
-      "notification": "<span foreground='#DB4740'></span>",
-      "none": "",
-      "dnd-notification":"<span foreground='#DB4740'></span>",
-      "dnd-none": "",
+      "notification": "<span foreground='#DB4740'> </span>",
+      "none": " ",
+      "dnd-notification":"<span foreground='#DB4740'> </span>",
+      "dnd-none": " ",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
+    "exec": "swaync-client --reload-css -swb",
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true

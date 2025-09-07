@@ -11,8 +11,8 @@ window#waybar {
 	transition-duration: .5s;
 }
 
-@import "/home/whyoolw/.cache/wal/colors-waybar.css";
-
+/*@import "/home/whyoolw/.cache/wal/colors-waybar.css";*/
+@import "/home/whyoolw/.config/waybar/colors.css";
 #workspaces {
 	font-size: 11pt;
 		padding: 0 0 0 0;
@@ -56,7 +56,7 @@ window#waybar {
 #tray {
 	background: @background;
 	color: @color9;
-	padding: 0 2 0 2;
+	padding: 0 2 0 0;
 	margin: 0 0 0 0;
 
 }
@@ -73,8 +73,8 @@ window#waybar {
 }
 
 #custom-notifications {
-	color: @color2;
-	margin: 0 2 0 8;
+	color: @color6;
+	margin: 0 0 0 8;
 }
 
 
