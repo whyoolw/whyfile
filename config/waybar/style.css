@@ -1,7 +1,7 @@
 * {
 	font-family: Google Sans;
 	font-weight: bold;
-	border-radius: 12;
+	border-radius: 0 0 8 8;
 	font-size: 14px;
 }
 
@@ -11,8 +11,7 @@ window#waybar {
 	transition-duration: .5s;
 }
 
-/*@import "/home/whyoolw/.cache/wal/colors-waybar.css";*/
-@import "/home/whyoolw/.config/waybar/colors.css";
+@import "/home/whyoolw/.cache/wal/colors-waybar.css";
 #workspaces {
 	font-size: 11pt;
 		padding: 0 0 0 0;

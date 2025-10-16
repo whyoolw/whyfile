@@ -6,7 +6,7 @@
     		"position": "top",
 		"exclusive": true,
 		"passthrough": false,
-		"margin-top": 6,
+		"margin-top": 0,
 		"spacing": 8,
 		"fixed-center": true,
 		"reload_style_on_change": true,
@@ -16,7 +16,6 @@
 			"tray",
 			"custom/sep",
 			"niri/language",
-			"niri/window",
 			"cava"],
 		"modules-center": [
 			"clock"
@@ -153,8 +152,8 @@
         	
     	"niri/language": {
         	"format": "{}",
-			"format-en": "󰑂 ",
-			"format-ru": "󰑀 "
+			"format-en": " ",
+			"format-ru": "󱙵 "
 			    	},
  	"battery": {
 		"interval": 5,

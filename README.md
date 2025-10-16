@@ -24,4 +24,3 @@ My Arch rice for Thinkpad P53
 | **Mod + Shift + F**      | Maximize column           | **Mod + Shift + S**       | Screenshot                    |
 | **Mod + C**              | Center column             | **Mod + Ctrl + S**        | Flameshot GUI                 |
 | **Mod + Ctrl + C**       | Center all visible cols   |                           |                                |
-

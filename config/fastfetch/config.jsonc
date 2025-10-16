@@ -1,123 +1,81 @@
 {
-    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": {
-        "type": "auto",
-        "source": "arch",
-        "height": 17,
-        "width": 20,
-        "padding": {
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+        "source": "/home/whyoolw/.config/fastfetch/logo.jsonc",
+    "padding": {
 	    "top": 2,
             "left": 3
-        }
+    }
+  },
+
+  "display": {
+    "bar": {
+      "width": 15
     },
-    "modules": [
-        "break",
-        
+    "percent": {
+      "type": 3,
+      "color": {
+        "green": "red",
+        "yellow": "red"
+      }
+    },
+    "key": {
+      "width": 22
+    },
+    "color": "white",
+    "separator": " -~> "
+  },
+
+  "modules": [
+    "break",
+
+    {
+      "type": "title",
+      "format": "{6}{7}{#yellow}{8}{#}"
+    },
+    "separator",
+    {
+      "type": "os",
+      "format": "{#blue}{4}{#} {?6}({#yellow}{6}{#}){?}"
+    },
+    "kernel",
         {
-            "type": "custom",
-            "format": "\u001b[90m┌───────────────────────────────────────────┐"
-            
+            "type": "packages"
         },
-        {
-            "type": "host",
-            "key": "│  ",
-            "keyColor": "green",
-            "format": "{family}"
-        },
-        {
-            "type": "cpu",
-            "key": "│ ├",
-            "keyColor": "green",
-            "format": "{name}"
-        },
+    "wm",
+    "shell",
+    "break",
+
+    {
+      "type": "cpu",
+      "format": "{name}"
+    },
         {
             "type": "gpu",
-            "key": "│ ├󰍛",
-            "keyColor": "green",
             "format": "{name}"
         },
-        {
-            "type": "memory",
-            "key": "│ ├󰍛",
-            "keyColor": "green"
-        },
-        {
-            "type": "disk",
-            "key": "└ └",
-            "keyColor": "green"
-        },
-        {
-            "type": "custom",
-            "format": "\u001b[90m└───────────────────────────────────────────┘"
-        },
-        "break",
-        {
-            "type": "custom",
-            "format": "\u001b[90m┌───────────────────────────────────────────┐"
-        },
-        {
-            "type": "os",
-            "key": "│  ",
-            "keyColor": "yellow",
-            "format": "{pretty-name}"
-        },
-        {
-            "type": "kernel",
-            "key": "│ ├",
-            "keyColor": "yellow",
-            "format": "{release}"
-        },
-        {
-            "type": "packages",
-            "key": "│ ├󰏖",
-            "keyColor": "yellow",
-            "format": "{pacman} pcmn {flatpak-system} fltpk"
-        },
-        {
-            "type": "shell",
-            "key": "│ ├",
-            "keyColor": "yellow",
-            "format": "{pretty-name}"
-        },
-{
-            "type": "custom",
-            "format": "│ │",
-            "outputColor": "magenta"
-        },
-        {
-            "type": "de",
-            "key": " DE",
-            "keyColor": "blue",
-                        "format": "{pretty-name}"
-        },
-
-        {
-            "type": "wm",
-            "key": "│ ├",
-            "keyColor": "blue",
-                        "format": "{pretty-name}"
-        },
-        {
-            "type": "terminal",
-            "key": "│ ├󰉼",
-            "keyColor": "blue",
-                        "format": "{pretty-name}"
-        },
-                        {
-            "type": "uptime",
-            "key": "└ └",
-            "keyColor": "blue",
-            "format": "{hours} horse+{minutes} minets"
-        },
-        {
-            "type": "custom",
-            "format": "\u001b[90m└───────────────────────────────────────────┘"
-        },
-        {
+	    "break",
+    {
+      "type": "memory",
+      "key": "Ram",
+      "format": "{percentage-bar} {used} {#yellow}({percentage}) {#white}ddr4"
+    },
+    {
+      "type": "disk",
+      "format": "{size-percentage-bar} {size-used} {#yellow}({size-percentage}) {#white}{filesystem}"
+    },
+    "break",
+    "uptime",
+    {
+      "type": "datetime",
+      "timeout": 2000
+    },
+    "break",
+            {
             "type": "colors",
-            "paddingLeft": 15,
             "symbol": "circle"
-        }
- 
-    ]
+        },
+	"break"
+  ]
 }
