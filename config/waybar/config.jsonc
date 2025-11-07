@@ -12,26 +12,20 @@
 		"reload_style_on_change": true,
 		"modules-left": [
 			"custom/notifications",
-			"custom/sep",
 			"tray",
-			"custom/sep",
 			"niri/language",
 			"cava"],
 		"modules-center": [
 			"clock"
 			],
 		"modules-right": [
-			"cava", "privacy", "custom/sep",
-			"pulseaudio","custom/sep",
-			"backlight","custom/sep",
-			"battery","custom/sep",
+			"cava", "privacy",
+			"pulseaudio",
+			"backlight",
+			"battery",
 			"network",
 
 			],
- 		/*"custom/sep": {
-			"format": "|",
-			"tooltip": false,
-		},*/
 "niri/window": {
     "format": "{app_id}",
     "icon": true,

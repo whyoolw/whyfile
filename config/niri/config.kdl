@@ -1,5 +1,4 @@
-spawn-at-startup 		"waybar"
-//spawn-at-startup		"quickshell"
+spawn-at-startup		"waybar"
 spawn-at-startup 		"swww-daemon"
 spawn-at-startup 		"Pipewire"
 //spawn-at-startup 		"swaync"
@@ -7,19 +6,19 @@ spawn-at-startup 		"clipse" "-listen"
 //spawn-at-startup 		"clipse -listen"
 spawn-at-startup 		"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup 		"kdeconnect-indicator"
-spawn-at-startup 		"/home/whyoolw/.local/bin/jams"
+spawn-at-startup 		"jams"
+spawn-at-startup		"xwaylannd-satellite"
 
     binds {
     Mod+E 			{ spawn "kitty" "sh" "-c" "ranger"; }
     Mod+Return 			{ spawn "kitty"; }
     Mod+D			{ spawn "fuzzel"; }
-    //Mod+D			{ spawn "quickshell" "ipc" "call" "globalIPC" "toggleLauncher"; }
     Mod+V 			{ spawn "kitty" "--class" "clipse" "-e" "clipse";}
     Mod+Shift+C 		{ spawn "hyprpicker" "-a" "$(wl-paste)"; }
     Mod+P 			{ spawn-sh "/home/whyoolw/.config/niri/off.sh"; }
 
     //Mod+MouseForward  		{ toggle-windowed-fullscreen; }
-    Mod+MouseBack		{ switch-focus-between-floating-and-tiling; }
+    Mod+MouseBack		{ spawn "kitty"; }
 
     XF86MonBrightnessUp 	{ spawn "brightnessctl" "-q" "set" "2%+"; }
     XF86MonBrightnessDown 	{ spawn "brightnessctl" "-q" "set" "2%-"; }
@@ -30,7 +29,7 @@ spawn-at-startup 		"/home/whyoolw/.local/bin/jams"
     XF86AudioRaiseVolume 	{ spawn "playerctl" "next"; }
     XF86AudioLowerVolume 	{ spawn "playerctl" "previous"; }
     XF86Launch5			{spawn ;} //z
-    XF86Launch6			{spawn ;} //x
+    XF86Launch6			{spawn "kitty";} //x
     XF86Launch7			{spawn "playerctl" "stop";} //c
     XF86Launch8			{spawn ;} //v
     Mod+Space 			{ spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
@@ -104,7 +103,7 @@ window-rule {
 
 environment {
     		//QT_STYLE_OVERRIDE "Adwaita-Dark"
-        XCURSOR_THEME "Buuf-cursor-svg"
+        XCURSOR_THEME "Apple-cursors"
 	QT_QPA_PLATFORM "wayland"
 	QT_QPA_PLATFORMTHEME "qt6ct"
     	MOZ_ENABLE_WAYLAND "1"
@@ -115,24 +114,29 @@ environment {
     	GDK_BACKEND "wayland"
 	DISPLAY ":0"
 	}
+
 layout {
     	gaps 14
 	center-focused-column "on-overflow"
     	always-center-single-column
 	background-color "transparent"
+
     struts {
         left 6
         right 6
         top 6
         bottom 6
     }
+
+
+
 shadow {
         draw-behind-window true
         softness 0
         spread 0
         offset x=8 y=8
-        color "2b2b2b"
-        inactive-color "#111111"
+	color "#222426"
+        //inactive-color "#111111"
     }
 
 default-column-width {
@@ -157,7 +161,6 @@ preset-window-heights {
         proportion 0.5
         proportion 0.66667
     }
-
 }
 input {
     keyboard {
@@ -180,16 +183,17 @@ focus-follows-mouse max-scroll-amount="0%"
 }
 
 	cursor {
-		xcursor-theme "Buuf-cursor-svg"
-    		xcursor-size 20
+		xcursor-theme "Apple-cursors"
+    		xcursor-size 24
 	    }
 
 	output "HDMI-A-1" {
-		//mode "1280x1024@75.025"
+		//mode "1024x768@75.029"
 		focus-at-startup
 	}
 
 output "eDP-1" {
+    off
 		mode "1920x1080@60.003"
 }
 
