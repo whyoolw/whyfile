@@ -6,7 +6,7 @@ My Arch rice for Thinkpad P53
 |---------------|--------|
 | DE            | niri   |
 | Bar           | waybar |
-| Launcher      | fuzzel |
+| Launcher      | vicinae |
 | Login Manager | tty    |
 | Shell         | fish   |
 
