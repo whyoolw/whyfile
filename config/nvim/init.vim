@@ -13,9 +13,13 @@ set autoindent
 set smartindent
 
 call plug#begin()
-
-Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
+Plug 'preservim/nerdcommenter',
+Plug 'EdenEast/nightfox.nvim',
+Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' },
+Plug 'skim-rs/skim', { 'dir': '~/.skim', 'do': './install' },
 
 call plug#end()
+colorscheme carbonfox
+"colorscheme pywal
 
-colorscheme pywal
+

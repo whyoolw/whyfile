@@ -1,67 +1,145 @@
-// -*- mode: jsonc -*-
-{	
-		"width": 1400,
-		"height": 25,
-    		"layer": "top",
-    		"position": "top",
-		"exclusive": true,
-		"passthrough": false,
-		"margin-top": 0,
-		"spacing": 8,
-		"fixed-center": true,
-		"reload_style_on_change": true,
-		"modules-left": [
-			"custom/notifications",
-			"tray",
-			"niri/language",
-			"cava"],
-		"modules-center": [
-			"clock"
-			],
-		"modules-right": [
-			"cava", "privacy",
-			"pulseaudio",
-			"backlight",
-			"battery",
-			"network",
 
-			],
-"niri/window": {
-    "format": "{app_id}",
-    "icon": true,
-    "icon-size": 14,
-    "seperate-outputs": false,
-"rewrite": {
-	"io.github.kukuruzka165.materialgram": "materialgram",
-	"com.obsproject.Studio": "obs",
-	"com.github.th_ch.youtube_music": "ytm",
-},
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 0,
+  "fixed-center": true,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "custom/separator",
+    "niri/workspaces",
+    "custom/separator",
+    "niri/language",
+  ],
+  "modules-center": [
+	  "clock", "privacy"
+  ],
+  "modules-right": [
+    "group/tray-expander",
+    "custom/separator",
+    "pulseaudio",
+    "backlight",
+    "custom/separator",
+    "network",
+    "battery",
+    "custom/separator",
+    "custom/notification",
+    "custom/separator"
+  ],
+  // Modules configuration
+  "niri/language": {
+  	"format": "{}",
+	"format-en": "en",
+	"format-ru": "ru "
+	},
+  "custom/notification": {
+      "tooltip": false,
+      "format": "{icon} ",
+      "format-icons": {
+        "notification": "",
+        "none": "",
+        "dnd-notification": "",
+        "dnd-none": "",
+        "inhibited-notification": "",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "",
+        "dnd-inhibited-none": ""
+      },        "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "escape": true,
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw"
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "custom/expand-icon",
+      "tray"
+    ]
+  },
+  "custom/expand-icon": {
+    "format": "󰻋 ",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 13
+  },
+  "clock": {
+    "format": "{:%H:%M:%S}",
+    "format-alt": "{:%d/%m/%y}",
+    "timezone": "Europe/Riga",
+    "interval": 1,
+    "tooltip": false
+  },
+  "backlight": {
+    "format": "  {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "scroll-step": 1,
+    "tooltip": false
+  },
+  "battery": {
+    "states": {
+        "warning": 15,
+        "critical": 8
+    },
+    "format": "{icon}",
+    "format-charging": " {icon}",
+    "format-plugged": " {icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "interval": 3,
+ 		"format-time": "{H}h {M}m",
+		"tooltip-format": "{capacity} {power}w {time}",
+		"tooltip-format-charging": "{capacity}% (charging) {time}",
   },
 
-"cava": {
-                "framerate": 60,
-                "autosens": 1,
-                "bars": 8,
-                "lower_cutoff_freq": 50,
-                "higher_cutoff_freq": 10000,
-                "method": "pulse",
-                "source": "auto",
-                "stereo": true,
-                "bar_delimiter": 0,
-                "noise_reduction": 0.30,
-                "input_delay": 0,
-                "format-icons" : ["", "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-           },
-
-"niri/workspaces": {
-  "disable-scroll": false,
-  "show-special": false,
-	"format": "{icon}",
-		"format-icons": {
-		"active": "1",
-		"default": "0"
-		},
-},
+  "network": {
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": " ",
+    "tooltip-format": " ",
+    "format-linked": " ",
+    "format-disconnected": "󰤮 ",
+    "tooltip": false,
+    "on-click": "kitty sh -c nmtui",
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "]
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon}  {volume}%",
+    "format-muted": " 0%",
+    "format-source": " {volume}%",
+    "format-source-muted": " ",
+    "format-icons": {
+        "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol",
+    "tooltip-format": "{volume}%",
+    "tooltip": false
+  },
+  "custom/bluetooth": {
+    "format": "",
+    "on-click": "blueberry",
+    "tooltip": false
+  },
+  "custom/separator": {
+    "format": "|",
+    "tooltip": false
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "on-click": "kitty -c btop",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "  {}%",
+    "on-click": "kitty -c btop"
+  },
 	"privacy": {
 			"icon-spacing": 10,
 			"icon-size": 12,
@@ -89,87 +167,4 @@
 				}
 			]
 		},
-	"network": {
-        	"format-wifi": "󰤯",
-        	"format-ethernet": "󰈀",
-        	"format-linked": "󰈀",
-        	"format-disconnected": "󰤮",
-          "on-click": "python ~/.config/rofi/network/network.py",
-	  "on-click-right": "/mnt/bine4/scripts/wallpaperkonachan.bash",
-	},
-
- 
-  "custom/notifications": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "<span foreground='#DB4740'> </span>",
-      "none": " ",
-      "dnd-notification":"<span foreground='#DB4740'> </span>",
-      "dnd-none": " ",
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client --reload-css -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  },
-	"tray": {
-		"icon-size": 14,
-		"spacing": 5,
-	},
-    
-		"clock": {
-			"format": "{:%H:%M:%S  %d.%m.%y}",
-			"tooltip-format": "{:%OI:%M:%S}",
-   		"timezone": "Europe/Riga",
-    		"interval": 1,
-		"tooltip": "false",
-     //   	"format-alt": "{:%d.%m.%y}",
-    "on-click-right": "bash ~/.config/rofi/calendar/calendar.sh"
-
-		},
-
-	
-     "pulseaudio": {
-		"format": "{volume} {format_source}",
-        	"format-muted": "MUTE",
-		"format-source": "1",
-		"format-source-muted": "0",
-		"format-icons": {
-			"default": ["1", "2", "3"]},
-			"on-click": "pavucontrol",
-    			"tooltip-format": "{volume}%"
-  },
- 
-        	
-    	"niri/language": {
-        	"format": "{}",
-			"format-en": " ",
-			"format-ru": "󱙵 "
-			    	},
- 	"battery": {
-		"interval": 5,
-		"states": {
-			"warning": 40,
-			"critical": 20,
-	},
-		"format": "{capacity}",
-		"format-icons": ["0", "1", "2", "3", "4"],
-		"format-time": "{H}h {M}m",
-		"tooltip-format": "{capacity} {power}w {time}",
-		"tooltip-format-charging": "{capacity}% (charging) {time}",
-},
-
-
-    "backlight": {
-    "device": "intel_backlight",
-"format": "{percent}",
-    "format-icons": ["1","2","3"],
-    "on-scroll-up":   "brightnessctl s 1%+",
-    "on-scroll-down": "brightnessctl s 1%-",
-    "on-click-right": "brightnessctl s 0"
-},
-
 }

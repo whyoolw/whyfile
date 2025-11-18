@@ -2,18 +2,22 @@ spawn-at-startup		"waybar"
 spawn-at-startup 		"swww-daemon"
 spawn-at-startup 		"Pipewire"
 //spawn-at-startup 		"swaync"
-spawn-at-startup 		"clipse" "-listen"
+//spawn-at-startup 		"clipse" "-listen"
 //spawn-at-startup 		"clipse -listen"
 spawn-at-startup 		"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup 		"kdeconnect-indicator"
 spawn-at-startup 		"jams"
 spawn-at-startup		"xwaylannd-satellite"
+spawn-at-startup		"vicinae" "server"
+spawn-at-startup		"pw-metadata" "-n" "settings" "0" "clock.force-quantum 1024"
 
     binds {
     Mod+E 			{ spawn "kitty" "sh" "-c" "ranger"; }
     Mod+Return 			{ spawn "kitty"; }
-    Mod+D			{ spawn "fuzzel"; }
-    Mod+V 			{ spawn "kitty" "--class" "clipse" "-e" "clipse";}
+    Mod+Shift+D			{ spawn "fuzzel"; }
+    Mod+D			{ spawn "vicinae" "toggle"; }
+    //Mod+V 			{ spawn "kitty" "--class" "clipse" "-e" "clipse";}
+    Mod+V 			{ spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history";}
     Mod+Shift+C 		{ spawn "hyprpicker" "-a" "$(wl-paste)"; }
     Mod+P 			{ spawn-sh "/home/whyoolw/.config/niri/off.sh"; }
 
@@ -88,10 +92,7 @@ spawn-at-startup		"xwaylannd-satellite"
 
     screenshot-path "~/Pictures/Screenshot/%d-%m-%y %H-%M-%S.png"
 
-window-rule {
-    	geometry-corner-radius 2
-    	clip-to-geometry true
-	}
+
 
 window-rule {
     	match is-window-cast-target=true
@@ -115,22 +116,29 @@ environment {
 	DISPLAY ":0"
 	}
 
+window-rule {
+    	geometry-corner-radius 0
+    	clip-to-geometry true
+	}
+
 layout {
-    	gaps 14
+    	gaps 0
 	center-focused-column "on-overflow"
     	always-center-single-column
 	background-color "transparent"
 
-    struts {
-        left 6
-        right 6
-        top 6
-        bottom 6
-    }
+  //*  struts {
+	    
+        //left 6
+      //  right 6
+    //    top 6
+  //      bottom 6
+//    }
 
 
 
 shadow {
+	
         draw-behind-window true
         softness 0
         spread 0
@@ -144,7 +152,7 @@ default-column-width {
 }
 
 focus-ring {
-        width 1
+        width 0
         active-color "#595959"
         inactive-color "#505050"
         urgent-color "#9b0000"
@@ -193,7 +201,6 @@ focus-follows-mouse max-scroll-amount="0%"
 	}
 
 output "eDP-1" {
-    off
 		mode "1920x1080@60.003"
 }
 
@@ -317,6 +324,6 @@ workspace "5" {
 	}
 
 debug {
-   render-drm-device "/dev/dri/renderD128"	//nvidia only
+   //render-drm-device "/dev/dri/renderD128"	//nvidia only
     //render-drm-device "/dev/dri/renderD129"	//intel+nvidia
 }
